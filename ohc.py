@@ -1,10 +1,12 @@
 import numpy
 
 
-# 数字与大写字母混合
-NUMBER = [str(_) for _ in range(0, 10)]
-LETTER = [chr(_).upper() for _ in range(97, 123)]
-CHARACTER = {v: k for k, v in enumerate(NUMBER + LETTER)}
+# 数字与大/小写字母混合
+NUMBER = [str(_) for _ in range(0, 10)]  # 0~9
+LETTER = [chr(_) for _ in range(97, 123)]  # a~z
+UPPER = [chr(_) for _ in range(65, 90)]  # A~Z
+CHARACTER = {v: k for k, v in enumerate(NUMBER + LETTER + UPPER)}  # dict
+
 
 # 验证码字符数
 CAPTCHA_NUMBER = 6
@@ -39,7 +41,7 @@ def one_hot_decode(value):
 
 if __name__ == '__main__':
     """ Example """
-    code = '0A2JYD'
+    code = '0A2Jsa'
     vec, orders = one_hot_encode(code)
     print('将 %s 进行特征数字化处理\n' % code)
     print('特征数字化结果：%s\n' % vec)
